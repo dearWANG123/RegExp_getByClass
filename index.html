@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <ul id="ul1">
+            <li></li>
+            <li class="box active"></li>
+            <li class="box"></li>
+            <li></li>
+            <li></li>
+            <li class="box1"></li>
+        </ul>
+        <script type="text/javascript">
+            var oUl=document.getElementById("ul1");
+            var aBox=getClass(oUl,'box1');
+            var i=0;
+            for(var i=0;i<aBox.length;i++){
+                aBox[i].style.background="red";
+            }
+            function getClass(oParent,aClass){
+                var aEle=oParent.getElementsByTagName("*");
+                var aResult=[];
+                var re=new RegExp('\\b'+aClass+'\\b',i);
+                for(var i=0;i<aEle.length;i++){
+                    if(re.test(aEle[i].className)){
+                        aResult.push(aEle[i]);
+                    }
+                }
+                return aResult;
+            }
+        </script>
+    </body>
+</html>
